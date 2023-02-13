@@ -9,3 +9,36 @@
 
   첫째 줄에 종료되는 시각의 시와 분을 공백을 사이에 두고 출력한다. (단, 시는 0부터 23까지의 정수, 분은 0부터 59까지의 정수이다. 디지털 시계는 23시 59분에서 1분이 지나면 0시 0분이 된다.)
 */
+
+const readline = require("readline")
+
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout,
+})
+
+const input = []
+
+rl.on("line", function(line) {
+    input.push(line)
+}).on("close", function() {
+    // [[14 30], 20]
+    
+    let hour = input[0].split(' ')[0]
+    let minute = input[0].split(' ')[1]
+    let time = input[1]
+
+    solution(+hour, +minute, +time)
+    
+    function solution(doneHour, doneMin, time) {
+        doneMin += time
+
+        while(doneMin >= 60) {
+            doneMin -= 60
+            doneHour += 1
+        }
+
+        doneHour %= 24;
+        console.log(doneHour, doneMin)
+    }
+})
