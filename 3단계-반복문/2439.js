@@ -21,10 +21,10 @@ let count = Number(input);
 let output = '';
 
 for (let i = 0; i < count ; i++) {
-  for (let k = 0; k < count - i -1 ; k++){ // count - i "-1"을 함으로써 마지막줄 공백 제거
+  for (let j = 0; j < count - i -1 ; j++){ // count - i "-1"을 함으로써 마지막줄 공백 제거
     output += ' ';
   }
-  for (let j = 0; j <= i; j++) {
+  for (let k = 0; k <= i; k++) {
     output += '*';
   }
   output +='\n';
